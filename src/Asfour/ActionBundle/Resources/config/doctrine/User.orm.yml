@@ -1,0 +1,38 @@
+Asfour\ActionBundle\Entity\User:
+  type: entity
+  table: user
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    image:
+      type: string
+      length: 63
+      nullable: true
+    score:
+      type: integer
+      default: 0
+    is_blessed:
+      type: boolean
+      default: false
+    created:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: create
+    updated:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: update
+  oneToMany:
+    needs:
+      targetEntity: Need
+      mappedBy: user
+      cascade: ["persist", "merge"]
+    participants:
+      targetEntity: Participant
+      mappedBy: user
+      cascade: ["persist", "merge"]
+  

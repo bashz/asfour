@@ -1,0 +1,41 @@
+Asfour\ActionBundle\Entity\Need:
+  type: entity
+  table: need
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 63
+    date:
+      type: date
+    is_filled:
+      type: boolean
+      default: false
+    created:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: create
+    filled_at:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: change
+          field: is_filled
+          value: true
+  manyToOne:
+    user:
+      targetEntity: User
+      inversedBy: needs
+      joinColumn:
+        name: user_id
+        referencedColumnName: id
+    category:
+      targetEntity: Category
+      inversedBy: needs
+      joinColumn:
+        name: category_id
+        referencedColumnName: id

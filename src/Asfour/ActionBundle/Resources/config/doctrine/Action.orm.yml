@@ -1,0 +1,73 @@
+Asfour\ActionBundle\Entity\Action:
+  type: entity
+  table: action
+  gedmo:
+    translation:
+      locale: locale
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    locale:
+      type: string
+      default: Fr
+    title:
+      type: string
+      length: 113
+      unique: true
+    date:
+      type: date
+    slug:
+      type: string
+      length: 127
+      gedmo:
+        slug:
+          style: camel
+          fields:
+            - title
+    preambule:
+      type: text
+      length: 2047
+      nullable: true
+      gedmo:
+        - translatable
+    body:
+      type: text
+      gedmo:
+        - translatable
+    facts:
+      type: string
+      lenght: 255
+      gedmo:
+        - translatable
+    is_active:
+      type: boolean
+      nullable: true
+    place:
+      type: string
+      length: 255
+      gedmo:
+        - translatable
+    created:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: create
+    updated:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: update
+  oneToMany:
+    participants:
+      targetEntity: Participant
+      mappedBy: action
+      cascade: ["persist", "merge"]
+    images:
+      targetEntity: Image
+      mappedBy: action
+      cascade: ["persist", "merge"]
+  indexes:
+    search_idx:
+      columns: slug

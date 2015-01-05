@@ -1,0 +1,26 @@
+Asfour\ActionBundle\Entity\Participant:
+  type: entity
+  table: participant
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  manyToOne:
+    action:
+      targetEntity: Action
+      inversedBy: participants
+      joinColumn:
+        name: action_id
+        referencedColumnName: id
+    user:
+      targetEntity: User
+      inversedBy: participants
+      joinColumn:
+        name: user_id
+        referencedColumnName: id
+    team:
+      targetEntity: Team
+      inversedBy: participants
+      joinColumn:
+        name: team_id
+        referencedColumnName: id

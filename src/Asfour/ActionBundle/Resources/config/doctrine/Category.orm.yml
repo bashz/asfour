@@ -1,0 +1,20 @@
+Asfour\ActionBundle\Entity\Category:
+  type: entity
+  table: category
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 63
+    image:
+      type: string
+      length: 63
+      nullable: true
+  oneToMany:
+    needs:
+      targetEntity: Need
+      mappedBy: category
+      cascade: ["persist", "merge"]
