@@ -47,7 +47,3 @@ assetic:
 #swiftmailer:
 #    delivery_address: me@example.com
 # YAML Fixtures
-
-khepin_yaml_fixtures:
-    resources:
-        - AsfourActionBundle/fixtureAction
