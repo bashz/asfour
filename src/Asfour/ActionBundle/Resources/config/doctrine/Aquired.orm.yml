@@ -1,0 +1,41 @@
+Asfour\ActionBundle\Entity\Aquired:
+  type: entity
+  table: aquired
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    date:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: create
+    is_new:
+      type: boolean
+      default: true
+  manyToOne:
+    user:
+      targetEntity: User
+      inversedBy: aquireds
+      joinColumn:
+        name: user_id
+        referencedColumnName: id
+    achivement:
+      targetEntity: Achivement
+      inversedBy: aquireds
+      joinColumn:
+        name: achivement_id
+        referencedColumnName: id
+  manyToMany:
+    actions:
+      targetEntity: Action
+      mappedBy: aquireds
+#      joinTable:
+#        name: action_aquired
+#        joinColumns:
+#          aquired_id:
+#            referencedColumnName: id
+#        inverseJoinColumns:
+#          action_id:
+#            referencedColumnName: id

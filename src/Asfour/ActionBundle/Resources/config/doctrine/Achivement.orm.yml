@@ -1,6 +1,14 @@
 Asfour\ActionBundle\Entity\Achivement:
-  type: mappedSuperclass
+  type: entity
   table: achivement
+  inheritanceType: SINGLE_TABLE
+  discriminatorColumn:
+    name: discr
+    type: string
+    length: 31
+  discriminatorMap:
+    badge: Badge
+    title: Title
   id:
     id:
       type: integer
@@ -16,35 +24,40 @@ Asfour\ActionBundle\Entity\Achivement:
     is_active:
       type: boolean
       default: false
-    image:
-      type: string
-      length: 63
-      nullable: true
-    thumbnail:
-      type: string
-      length: 63
-      nullable: true
-    score:
-      type: integer
-      nullable: true
-Asfour\ActionBundle\Entity\Badge:
-  type: entity
-  attributeOverride:
-    id:
-      column: badge_id
-    image:
-      type: string
-      length: 63
-      nullable: false
-    thumbnail:
-      type: string
-      length: 63
-      nullable: false
-Asfour\ActionBundle\Entity\Title:
-  type: entity
-  attributeOverride:
-    id:
-      column: title_id
-    score:
-      type: integer
-      nullable: false
+  oneToMany:
+    aquireds:
+      targetEntity: Aquired
+      mappedBy: achivement
+      cascade: ["persist", "merge"]
+#    image:
+#      type: string
+#      length: 63
+#      nullable: true
+#    thumbnail:
+#      type: string
+#      length: 63
+#      nullable: true
+#    score:
+#      type: integer
+#      nullable: true
+#Asfour\ActionBundle\Entity\Badge:
+#  type: entity
+#  attributeOverride:
+#    id:
+#      column: badge_id
+#    image:
+#      type: string
+#      length: 63
+#      nullable: false
+#    thumbnail:
+#      type: string
+#      length: 63
+#      nullable: false
+#Asfour\ActionBundle\Entity\Title:
+#  type: entity
+#  attributeOverride:
+#    id:
+#      column: title_id
+#    score:
+#      type: integer
+#      nullable: false

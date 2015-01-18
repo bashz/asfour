@@ -1,0 +1,11 @@
+Asfour\ActionBundle\Entity\Badge:
+  type: entity
+  fields:
+    image:
+      type: string
+      length: 63
+      nullable: false
+    thumbnail:
+      type: string
+      length: 63
+      nullable: false

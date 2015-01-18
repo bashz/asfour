@@ -68,6 +68,29 @@ Asfour\ActionBundle\Entity\Action:
       targetEntity: Image
       mappedBy: action
       cascade: ["persist", "merge"]
+  manyToMany:
+    aquireds:
+      targetEntity: Aquired
+      inversedBy: actions
+      joinTable:
+        name: action_aquired
+        joinColumns:
+          action_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          aquired_id:
+            referencedColumnName: id
+    blesseds:
+      targetEntity: Blessed
+      inversedBy: actions
+      joinTable:
+        name: action_blessed
+        joinColumns:
+          action_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          blessed_id:
+            referencedColumnName: id
   indexes:
     search_idx:
       columns: slug

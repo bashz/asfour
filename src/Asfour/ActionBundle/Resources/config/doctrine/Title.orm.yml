@@ -1,0 +1,6 @@
+Asfour\ActionBundle\Entity\Title:
+  type: entity
+  fields:
+    score:
+      type: integer
+      nullable: false

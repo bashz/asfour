@@ -27,11 +27,11 @@ Asfour\ActionBundle\Entity\Need:
           field: is_filled
           value: true
   manyToOne:
-    user:
-      targetEntity: User
+    blessed:
+      targetEntity: Blessed
       inversedBy: needs
       joinColumn:
-        name: user_id
+        name: blessed_id
         referencedColumnName: id
     category:
       targetEntity: Category

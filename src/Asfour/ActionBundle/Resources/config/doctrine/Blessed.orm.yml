@@ -1,0 +1,54 @@
+Asfour\ActionBundle\Entity\Blessed:
+  type: entity
+  table: blessed
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 63
+      nullable: false
+    age:
+      type: integer
+      length: 5
+      nullable: true
+    image:
+      type: string
+      length: 63
+      default: "no-image.png"
+    created:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: create
+    updated:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: update
+    last_seen_on:
+      type: date
+      nullable: true
+    last_seen_at:
+      type: string
+      length: 255
+      nullable: true
+    last_seen_lat:
+      type: float
+      length: 6
+      nullable: false
+    last_seen_lon:
+      type: float
+      length: 6
+      nullable: false  
+  oneToMany:
+    needs:
+      targetEntity: Need
+      mappedBy: blessed
+      cascade: ["persist", "merge"]
+  manyToMany:
+    actions:
+      targetEntity: Action
+      mappedBy: blesseds

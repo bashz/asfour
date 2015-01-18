@@ -27,12 +27,12 @@ Asfour\ActionBundle\Entity\User:
         timestampable:
           on: update
   oneToMany:
-    needs:
-      targetEntity: Need
-      mappedBy: user
-      cascade: ["persist", "merge"]
     participants:
       targetEntity: Participant
+      mappedBy: user
+      cascade: ["persist", "merge"]
+    aquireds:
+      targetEntity: Aquired
       mappedBy: user
       cascade: ["persist", "merge"]
   
