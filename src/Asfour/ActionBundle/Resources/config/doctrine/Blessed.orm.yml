@@ -17,7 +17,7 @@ Asfour\ActionBundle\Entity\Blessed:
     image:
       type: string
       length: 63
-      default: "no-image.png"
+      nullable: false
     created:
       type: datetime
       gedmo:
@@ -36,13 +36,15 @@ Asfour\ActionBundle\Entity\Blessed:
       length: 255
       nullable: true
     last_seen_lat:
-      type: float
-      length: 6
-      nullable: false
+      type: decimal
+      precision: 9
+      scale: 7
+      nullable: true
     last_seen_lon:
-      type: float
-      length: 6
-      nullable: false  
+      type: decimal
+      precision: 9
+      scale: 7
+      nullable: true  
   oneToMany:
     needs:
       targetEntity: Need

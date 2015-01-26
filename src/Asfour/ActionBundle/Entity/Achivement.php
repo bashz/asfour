@@ -35,7 +35,7 @@ class Achivement
     /**
      * @var boolean
      */
-    private $is_active;
+    private $is_active = 0;
 
     /**
      * @var string

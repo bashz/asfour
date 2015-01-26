@@ -12,6 +12,7 @@ Asfour\ActionBundle\Entity\Action:
     locale:
       type: string
       default: Fr
+      nullable: true
     title:
       type: string
       length: 113
@@ -39,6 +40,7 @@ Asfour\ActionBundle\Entity\Action:
     facts:
       type: string
       lenght: 255
+      nullable: true
       gedmo:
         - translatable
     is_active:

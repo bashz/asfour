@@ -9,108 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Blessed
 {
-
-    /**
-     * @var \DateTime
-     */
-    private $last_seen_on;
-
-    /**
-     * @var string
-     */
-    private $last_seen_at;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $needs;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->needs = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set last_seen_on
-     *
-     * @param \DateTime $lastSeenOn
-     * @return Blessed
-     */
-    public function setLastSeenOn($lastSeenOn)
-    {
-        $this->last_seen_on = $lastSeenOn;
-
-        return $this;
-    }
-
-    /**
-     * Get last_seen_on
-     *
-     * @return \DateTime 
-     */
-    public function getLastSeenOn()
-    {
-        return $this->last_seen_on;
-    }
-
-    /**
-     * Set last_seen_at
-     *
-     * @param string $lastSeenAt
-     * @return Blessed
-     */
-    public function setLastSeenAt($lastSeenAt)
-    {
-        $this->last_seen_at = $lastSeenAt;
-
-        return $this;
-    }
-
-    /**
-     * Get last_seen_at
-     *
-     * @return string 
-     */
-    public function getLastSeenAt()
-    {
-        return $this->last_seen_at;
-    }
-
-    /**
-     * Add needs
-     *
-     * @param \Asfour\ActionBundle\Entity\Need $needs
-     * @return Blessed
-     */
-    public function addNeed(\Asfour\ActionBundle\Entity\Need $needs)
-    {
-        $this->needs[] = $needs;
-
-        return $this;
-    }
-
-    /**
-     * Remove needs
-     *
-     * @param \Asfour\ActionBundle\Entity\Need $needs
-     */
-    public function removeNeed(\Asfour\ActionBundle\Entity\Need $needs)
-    {
-        $this->needs->removeElement($needs);
-    }
-
-    /**
-     * Get needs
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getNeeds()
-    {
-        return $this->needs;
-    }
     /**
      * @var integer
      */
@@ -129,7 +27,7 @@ class Blessed
     /**
      * @var string
      */
-    private $image;
+    private $image = "no-image.png";
 
     /**
      * @var \DateTime
@@ -142,15 +40,43 @@ class Blessed
     private $updated;
 
     /**
-     * @var float
+     * @var \DateTime
+     */
+    private $last_seen_on;
+
+    /**
+     * @var string
+     */
+    private $last_seen_at;
+
+    /**
+     * @var string
      */
     private $last_seen_lat;
 
     /**
-     * @var float
+     * @var string
      */
     private $last_seen_lon;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $needs;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $actions;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->needs = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->actions = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -278,9 +204,55 @@ class Blessed
     }
 
     /**
+     * Set last_seen_on
+     *
+     * @param \DateTime $lastSeenOn
+     * @return Blessed
+     */
+    public function setLastSeenOn($lastSeenOn)
+    {
+        $this->last_seen_on = $lastSeenOn;
+
+        return $this;
+    }
+
+    /**
+     * Get last_seen_on
+     *
+     * @return \DateTime 
+     */
+    public function getLastSeenOn()
+    {
+        return $this->last_seen_on;
+    }
+
+    /**
+     * Set last_seen_at
+     *
+     * @param string $lastSeenAt
+     * @return Blessed
+     */
+    public function setLastSeenAt($lastSeenAt)
+    {
+        $this->last_seen_at = $lastSeenAt;
+
+        return $this;
+    }
+
+    /**
+     * Get last_seen_at
+     *
+     * @return string 
+     */
+    public function getLastSeenAt()
+    {
+        return $this->last_seen_at;
+    }
+
+    /**
      * Set last_seen_lat
      *
-     * @param float $lastSeenLat
+     * @param string $lastSeenLat
      * @return Blessed
      */
     public function setLastSeenLat($lastSeenLat)
@@ -293,7 +265,7 @@ class Blessed
     /**
      * Get last_seen_lat
      *
-     * @return float 
+     * @return string 
      */
     public function getLastSeenLat()
     {
@@ -303,7 +275,7 @@ class Blessed
     /**
      * Set last_seen_lon
      *
-     * @param float $lastSeenLon
+     * @param string $lastSeenLon
      * @return Blessed
      */
     public function setLastSeenLon($lastSeenLon)
@@ -316,17 +288,45 @@ class Blessed
     /**
      * Get last_seen_lon
      *
-     * @return float 
+     * @return string 
      */
     public function getLastSeenLon()
     {
         return $this->last_seen_lon;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $actions;
 
+    /**
+     * Add needs
+     *
+     * @param \Asfour\ActionBundle\Entity\Need $needs
+     * @return Blessed
+     */
+    public function addNeed(\Asfour\ActionBundle\Entity\Need $needs)
+    {
+        $this->needs[] = $needs;
+
+        return $this;
+    }
+
+    /**
+     * Remove needs
+     *
+     * @param \Asfour\ActionBundle\Entity\Need $needs
+     */
+    public function removeNeed(\Asfour\ActionBundle\Entity\Need $needs)
+    {
+        $this->needs->removeElement($needs);
+    }
+
+    /**
+     * Get needs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNeeds()
+    {
+        return $this->needs;
+    }
 
     /**
      * Add actions

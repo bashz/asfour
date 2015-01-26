@@ -1,0 +1,11 @@
+AsfourActionBundle_action:
+    resource: "@AsfourActionBundle/Resources/config/routing/action.yml"
+    prefix:   /action
+
+asfour_action_action:
+    resource: "@AsfourActionBundle/Resources/config/routing/action.yml"
+    prefix:   /action
+
+asfour_action_homepage:
+    path:     /asfour/{name}
+    defaults: { _controller: AsfourActionBundle:Default:index }

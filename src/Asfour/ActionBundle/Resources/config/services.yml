@@ -1,0 +1,4 @@
+services:
+#    asfour_action.example:
+#        class: Asfour\ActionBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -13,6 +13,7 @@ Asfour\ActionBundle\Entity\Category:
       type: string
       length: 63
       nullable: true
+      default: 'path/to/default-category.png'
   oneToMany:
     needs:
       targetEntity: Need

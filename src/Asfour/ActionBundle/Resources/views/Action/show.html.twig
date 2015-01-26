@@ -1,0 +1,72 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Action</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Locale</th>
+                <td>{{ entity.locale }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ entity.title }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ entity.slug }}</td>
+            </tr>
+            <tr>
+                <th>Preambule</th>
+                <td>{{ entity.preambule }}</td>
+            </tr>
+            <tr>
+                <th>Body</th>
+                <td>{{ entity.body }}</td>
+            </tr>
+            <tr>
+                <th>Facts</th>
+                <td>{{ entity.facts }}</td>
+            </tr>
+            <tr>
+                <th>Is_active</th>
+                <td>{{ entity.isactive }}</td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td>{{ entity.place }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ entity.created|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Updated</th>
+                <td>{{ entity.updated|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('action') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('action_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -11,9 +11,13 @@ Asfour\ActionBundle\Entity\Need:
       length: 63
     date:
       type: date
+      gedmo:
+        timestampable:
+          on: create
     is_filled:
       type: boolean
       default: false
+      nullable: true
     created:
       type: datetime
       gedmo:
@@ -21,6 +25,7 @@ Asfour\ActionBundle\Entity\Need:
           on: create
     filled_at:
       type: datetime
+      nullable: true
       gedmo:
         timestampable:
           on: change

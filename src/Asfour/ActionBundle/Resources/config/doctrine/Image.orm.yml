@@ -5,7 +5,7 @@ Asfour\ActionBundle\Entity\Image:
     uploadable:
       allowOverwrite: true
       appendNumber: true
-      path: '/my/path'
+      path: '/web/bundle/asfouraction/uplaods/images/'
       pathMethod: getPath
       callback: callbackMethod
       filenameGenerator: SHA1

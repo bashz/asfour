@@ -1,0 +1,30 @@
+action:
+    path:     /
+    defaults: { _controller: "AsfourActionBundle:Action:index" }
+
+action_show:
+    path:     /{id}/show
+    defaults: { _controller: "AsfourActionBundle:Action:show" }
+
+action_new:
+    path:     /new
+    defaults: { _controller: "AsfourActionBundle:Action:new" }
+
+action_create:
+    path:     /create
+    defaults: { _controller: "AsfourActionBundle:Action:create" }
+    requirements: { _method: post }
+
+action_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AsfourActionBundle:Action:edit" }
+
+action_update:
+    path:     /{id}/update
+    defaults: { _controller: "AsfourActionBundle:Action:update" }
+    requirements: { _method: post|put }
+
+action_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AsfourActionBundle:Action:delete" }
+    requirements: { _method: post|delete }

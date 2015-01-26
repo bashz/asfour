@@ -74,7 +74,7 @@ swiftmailer:
     spool:     { type: memory }
 
 stof_doctrine_extensions:
-    default_locale: en_US
+    default_locale: fr_FR
 
     # Only used if you activated the Uploadable extension
     uploadable:

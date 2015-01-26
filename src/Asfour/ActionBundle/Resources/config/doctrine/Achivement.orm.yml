@@ -23,7 +23,8 @@ Asfour\ActionBundle\Entity\Achivement:
       type: text
     is_active:
       type: boolean
-      default: false
+      options:
+        default: false
   oneToMany:
     aquireds:
       targetEntity: Aquired
